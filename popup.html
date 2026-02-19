@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Site Watcher</title>
+  <style>
+    body { font-family: Arial; width: 320px; padding: 10px; }
+    input, button, select { margin-top: 5px; width: 100%; }
+    .site-list { margin-top: 10px; max-height: 200px; overflow-y: scroll; border: 1px solid #eee; border-radius: 4px; background: #fafafa; } /* Always show vertical scrollbar */
+    .site-item { display: flex; align-items: center; padding: 6px 4px; border-bottom: 1px solid #eee; }
+    .site-item:last-child { border-bottom: none; }
+    .site-icon { width: 24px; height: 24px; margin-right: 10px; border-radius: 4px; background: #eee; display: flex; align-items: center; justify-content: center; }
+    .site-name { flex: 1; font-weight: 500; }
+    .site-actions button { margin-left: 5px; }
+    #historyModal { display: none; position: fixed; top: 10%; left: 10%; width: 80%; background: #fff; border: 1px solid #ccc; padding: 10px; z-index: 1000; box-shadow: 0 2px 8px #0002; }
+    #historyModal .close { float: right; cursor: pointer; font-size: 18px; }
+    #historyList { max-height: 250px; overflow-y: auto; }
+  </style>
+</head>
+<body>
+  <h3>Watch a Website</h3>
+  <input type="text" id="url" placeholder="https://example.com" />
+  <input type="text" id="name" placeholder="Site Name (optional)" />
+  <button id="addSite">Add Site</button>
+  <div id="message"></div>
+
+  <h4>Bookmarked Sites</h4>
+  <div id="bookmarks" class="site-list"></div>
+
+  <button id="showHistory">View History</button>
+
+  <div id="historyModal">
+    <span class="close" id="closeHistory">&times;</span>
+    <h4>Notification History</h4>
+    <div id="historyList"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
